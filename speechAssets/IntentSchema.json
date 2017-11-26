@@ -1,0 +1,41 @@
+{
+  "intents": [
+    {
+      "intent": "LaunchRequest",
+      "samples": []
+    },
+    {
+      "intent": "AMAZON.HelpIntent",
+      "samples": []
+    },
+    {
+      "intent": "AMAZON.CancelIntent",
+      "samples": []
+    },
+    {
+      "intent": "AMAZON.StopIntent",
+      "samples": []
+    },
+    {
+      "intent": "SessionEndedRequest",
+      "samples": []
+    },
+    {
+      "intent": "PlayNoteIntent",
+      "slots": [
+        {
+          "name": "pitch",
+          "type": "PITCH_TYPE"
+        },
+        {
+          "name": "note",
+          "type": "NOTE_NAME"
+        }
+      ]
+    },
+    {
+      "intent": "Unhandled",
+      "samples": []
+    }
+  ]
+}
