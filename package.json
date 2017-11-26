@@ -1,0 +1,46 @@
+{
+  "name": "alexa-guitar-tuner",
+  "version": "1.0.0",
+  "description": "Guitar tuner skill for Alexa",
+  "private": true,
+  "scripts": {
+    "dev": "npm run build:dev & bst proxy lambda lambda/custom/index.js",
+    "build": "babel src --out-dir lambda/custom --ignore __tests__",
+    "build:watch": "babel src --out-dir lambda/custom --ignore __tests__ -w",
+    "build:production": "BABEL_ENV=production npm run build && node ./tools/build-lambda-package-json.js",
+    "build:dev": "BABEL_ENV=development dotenv npm run build:watch",
+    "build:test": "BABEL_ENV=development dotenv npm run build",
+    "test": "npm run build:test && dotenv jest --verbose"
+  },
+  "author": "Michael Harrison",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/harrim91/alexa-guitar-tuner"
+  },
+  "license": "NO LICENSE",
+  "dependencies": {
+    "alexa-sdk": "^1.0.13"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-eslint": "^7.2.3",
+    "babel-jest": "^21.0.0",
+    "babel-plugin-transform-inline-environment-variables": "^0.2.0",
+    "babel-preset-es2015": "^6.24.1",
+    "bespoken-tools": "^1.0.5",
+    "dotenv-cli": "^1.4.0",
+    "eslint": "^4.6.1",
+    "eslint-config-airbnb-base": "^12.0.0",
+    "eslint-plugin-import": "^2.7.0",
+    "jest": "^21.0.1"
+  },
+  "jest": {
+    "transform": {
+      "^.+\\.js$": "babel-jest"
+    },
+    "testPathIgnorePatterns": [
+      "<rootDir>/build/",
+      "<rootDir>/node_modules/"
+    ]
+  }
+}
